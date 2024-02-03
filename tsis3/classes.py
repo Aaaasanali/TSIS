@@ -83,5 +83,46 @@
 #     def __init__(self, owner, balance):
 #         self.owner = owner
 #         self.balance = balance
-#     def withdraw(self):
-#         self.balance 
+#     def withdraw(self, value):
+#         if self.balance < value:
+#             print("You don't have that much money, you're poor, " + self.owner + "!\n")
+#         else:
+#             self.balance -= value
+#             print("You have withdrawn " + str(value) + " tenge!")
+#             print("You have " + str(self.balance) + " tenge left\n")
+#     def deposit(self, value):
+#         self.balance += value
+#         print("You have deposited " + str(value) + " tenge!")
+#         print("Now you have " + str(self.balance) + " tenge, you're rich, " + self.owner + "!\n")
+
+# obj = BankAcc("Khalid", 2000)
+# obj.withdraw(1000)
+# obj.deposit(2000)
+# obj.withdraw(3000)
+# obj.withdraw(1000987)
+# obj.deposit(231867)
+
+
+#------------------------------------------
+#def isPrime(val):
+#     if val == 1:
+#       return True
+#     elif val > 1:
+#       for i in range(2, val):
+#           if (val % i) == 0:
+#               return False
+#     return True
+
+# def filter(list):
+#     result = []
+#     for x in list:
+#         if (lambda val: isPrime(val))(x):
+#             result.append(x)
+#             list.remove(x)
+#     return result, list
+            
+
+
+# list_ = [3, 4, 5, 6, 7, 8, 9, 3, 213, 21, 24, 9, 1]
+# a = filter(list_)
+# print(a)
