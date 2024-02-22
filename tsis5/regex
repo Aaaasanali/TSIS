@@ -1,0 +1,42 @@
+import re
+
+h = open("row.txt", encoding='utf-8')
+
+# for line in h:
+#     k = re.findall("а[б]+", line)
+#     l = re.findall("a[b]+", line)
+#     if k:print(k)
+#     if l:print(l)
+
+
+# for line in h:
+#     k = re.findall("а[б]{2,3}", line)
+#     l = re.findall("a[b]{2,3}", line)
+#     if k:print(k)
+#     if l:print(l)
+
+# for line in h:
+#     k = re.findall("[а-я]+[-]", line)
+#     if k:print(k)
+
+# for line in h:
+#     k = re.findall("[А-Я]+[а-я]+", line)
+#     l = re.findall("[A-Z]+[a-z]+", line)
+#     if k:print(k)
+#     if l:print(l)
+
+# for line in h:
+#     k = re.findall("а.+б$", line)
+#     l = re.findall("a.+b$", line)
+#     if k:print(k)
+#     if l:print(l)
+
+# for line in h:
+#     k = re.sub("[\s.,]", ":", line)
+#     print(k)
+
+for line in h:
+    k = re.search("_", line)
+    if k:
+        print(k.span())
+        k = re.sub("_", "", line)
