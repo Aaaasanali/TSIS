@@ -33,10 +33,19 @@ h = open("row.txt", encoding='utf-8')
 
 # for line in h:
 #     k = re.sub("[\s.,]", ":", line)
-#     print(k)
+#     print(k) lambda match: match.group(1).upper()
 
-for line in h:
-    k = re.search("_", line)
-    if k:
-        print(k.span())
-        k = re.sub("_", "", line)
+# for line in h:
+#     k = re.sub('_([a-z])', lambda match: match.group(1).upper(), line)
+#     if k:
+#         print(k)
+
+# for line in h:
+#     k = re.sub("^[A-ZА-Я].+[^A-ZА-Я]", " ",line)
+# #     if k:
+# #         print(k)
+
+# line = input()
+# k = re.sub('_([a-z])', lambda match: match.group(1).upper(), line)
+# if k:
+#     print(k)
