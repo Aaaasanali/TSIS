@@ -10,8 +10,8 @@ dis_food = False
 timer = 0
 scale = 0
 
-screen_width = 1000
-screen_height = 1000
+screen_width = 700
+screen_height = 700
 
 
 nick = input("Input Your Nickname ")
@@ -42,7 +42,7 @@ with sq.connect('user.db') as con:
   if new:
     level = 1
     cur.execute("INSERT INTO user_data VALUES (?, ?)", (nick, 1))
-    cur.execute("INSERT INTO user_state VALUES (?, ?)", (nick, 1))
+    cur.execute("INSERT INTO user_state VALUES (?, ?)", (nick, 2))
     snake_pos = [[int(screen_width/2), int(screen_width/2)]]
     snake_pos.append([int(screen_width/2), int(screen_width/2)+cell_size])
 
@@ -198,14 +198,14 @@ while run:
       pygame.draw.rect(screen, body_outer, (x[0], x[1], cell_size, cell_size))
       pygame.draw.rect(screen, red, (x[0]+1, x[1]+1, cell_size-2, cell_size-2))
       head = 0
-  if score >= 50:
+  if score >= 20:
     time.sleep(2)
     level += 1
     print(level, nick)
     with sq.connect('user.db') as con:
       cur = con.cursor()
       cur.execute("UPDATE user_data SET user_score = ? WHERE user_nick = ?", (level, nick))
-      cur.execute("UPDATE user_state SET lgbt = 0 WHERE user_nick = ?", (nick,))
+      cur.execute("UPDATE user_state SET lgbt = 2 WHERE user_nick = ?", (nick,))
     score = 0
     while len(snake_pos) > 5:
       snake_pos.pop()
